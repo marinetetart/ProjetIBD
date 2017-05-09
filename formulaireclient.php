@@ -1,4 +1,5 @@
 <?php
+
 if(isset($_POST['submit']))
 {
 	$civilite=htmlentities(trim($_POST['civilite']));
@@ -6,6 +7,7 @@ if(isset($_POST['submit']))
 	$prenom=htmlentities(trim($_POST['prenom']));
 	$telephone=htmlentities(trim($_POST['telephone']));
 	$mail=htmlentities(trim($_POST['mail']));
+
 	if($nom&&$prenom&&$telephone&&$mail)
 	{
 //On se connecte à la base de données
@@ -19,24 +21,31 @@ if(isset($_POST['submit']))
 		$requete->bindValue(':telephone', $telephone, PDO::PARAM_STR);
 		$requete->bindValue(':mail', $mail, PDO::PARAM_STR);
 		
+
 //On exécute la requête
 		$requete->execute();
 	
 		die("Inscription terminée, je vous invite à passer à la seconde étape ! <a href='formulairerdv.php'>Prenez rendez-vous !</a>");
 	
 		}else echo "Erreur : veuillez saisir tous les champs";
+
 }
+
 ?>
 
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" action="formulairerdv.php"> 
+		<body bgcolor="#B0C4DE">
 		<title> Mon formulaire client</title>
 	</head>
   	 <body>
-	 
-	 <h1>Votre fichier client...</h1>
+  	 	
+
+	 <center><img src="bannierespa.png" ></center>
+	 <center><h1>Votre fichier client...</h1></center>
+	<center>
 		<form method="POST" action="formulaireclient.php" >
 		<table>
 		
@@ -44,7 +53,7 @@ if(isset($_POST['submit']))
 			<td>Civilité</td>
 			<td><input type="radio" name="civilite" value="M." />M.
 				<input type="radio" name="civilite" value="Mlle" />Mlle
-				<input type="radio" name="civilite" value="Mme" />Mme</td>
+				<input type="radio" name="civilite" value="Mme" />Mme</td> 
 		</tr>
 		<tr>
 			<td>Votre nom</td>
@@ -67,6 +76,7 @@ if(isset($_POST['submit']))
 		</tr>
 		</table>
 		</form>
+	</center>
 		
 
 		
