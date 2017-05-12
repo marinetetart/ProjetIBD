@@ -1,3 +1,4 @@
+<?php include('Connexion.php') ?>
 <?php
 
 if(isset($_POST['submit']))
@@ -10,8 +11,7 @@ if(isset($_POST['submit']))
 
 	if($nom&&$prenom&&$telephone&&$mail)
 	{
-//On se connecte à la base de données
-		$bdd = new PDO('mysql:host=localhost;dbname=institut;charset=utf8', 'root', '');
+
 		
 //On fait une requête qui permet d'insérer les données du formulaire dans la base de données
 		$requete = $bdd->prepare('INSERT INTO client(civilite, nom, prenom,telephone, mail) VALUES(:civilite,:nom,:prenom,:telephone, :mail)');
@@ -65,7 +65,7 @@ if(isset($_POST['submit']))
 		</tr>
 		<tr>
 			<td>Votre numéro de téléphone</td>
-			<td><input type="text" name="telephone"></td>
+			<td><input type="tel" name="telephone"></td>
 		</tr>
 		<tr>
 			<td>Votre adresse mail</td>
