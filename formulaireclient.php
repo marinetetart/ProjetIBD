@@ -1,5 +1,13 @@
+<!--On met en relation la page avec la base de données -->
 <?php include('Connexion.php') ?>
 <?php
+
+
+//////////////////////////////////////////////////////////////////////
+//																	//
+//			Connexion du formulaire client à la base de données     //
+//																	//
+//////////////////////////////////////////////////////////////////////
 
 if(isset($_POST['submit']))
 {
@@ -26,7 +34,7 @@ if(isset($_POST['submit']))
 		$requete->execute();
 	
 		die("Inscription terminée, je vous invite à passer à la seconde étape ! <a href='formulairerdv.php'>Prenez rendez-vous !</a>");
-	
+		
 		}else echo "Erreur : veuillez saisir tous les champs";
 
 }
@@ -37,6 +45,7 @@ if(isset($_POST['submit']))
 <html>
 	<head>
 		<meta charset="utf-8" action="formulairerdv.php"> 
+
 		<body bgcolor="#B0C4DE">
 		<title> Mon formulaire client</title>
 	</head>
@@ -46,6 +55,7 @@ if(isset($_POST['submit']))
 	 <center><img src="bannierespa.png" ></center>
 	 <center><h1>Votre fichier client...</h1></center>
 	<center>
+<!--Création du formulaire client-->
 		<form method="POST" action="formulaireclient.php" >
 		<table>
 		
